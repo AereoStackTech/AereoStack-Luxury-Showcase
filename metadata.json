@@ -1,0 +1,6 @@
+{
+  "name": "Luxury Brand & Experience Showcase Platform",
+  "description": "A refined, high-performance showcase platform for bespoke luxury collections, artisanal craftsmanship, and client consultation journeys.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
