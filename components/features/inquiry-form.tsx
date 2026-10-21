@@ -10,6 +10,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { CheckCircle2, AlertCircle, Loader2, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useLanguage } from '@/lib/i18n/language-context';
+import { cn } from '@/lib/utils';
 
 interface InquiryFormProps {
   productItemId?: string | null;
@@ -24,6 +26,7 @@ export function InquiryForm({
   onSuccess,
   compact = false,
 }: InquiryFormProps) {
+  const { t, isRTL } = useLanguage();
   const [isPending, setIsPending] = React.useState(false);
   const [serverError, setServerError] = React.useState<string | null>(null);
   const [isSuccess, setIsSuccess] = React.useState(false);
@@ -40,7 +43,7 @@ export function InquiryForm({
       clientEmail: '',
       phone: '',
       message: productTitle
-        ? `I am interested in acquiring or requesting a private viewing for the "${productTitle}". Please share availability and provenance details.`
+        ? `Regarding "${productTitle}". Please share availability, confidential provenance archive, and private acquisition terms.`
         : '',
       productItemId: productItemId || null,
       preferredTimeframe: 'Immediate Consultation',
@@ -84,10 +87,13 @@ export function InquiryForm({
               <CheckCircle2 className="w-6 h-6" />
             </div>
             <h3 className="text-2xl font-serif text-[#111111]">
-              Consultation Request Received
+              {t('inquiry.success.title', 'Inquiry Successfully Received')}
             </h3>
             <p className="text-sm text-[#666666] leading-relaxed max-w-md">
-              Thank you for extending your interest. A dedicated client advisor from our Zurich & London private concierge will contact you within 24 hours.
+              {t(
+                'inquiry.success.desc',
+                'Your request has been routed to our senior concierge. A private confirmation has been dispatched to your email.'
+              )}
             </p>
             <div className="pt-4">
               <Button
@@ -95,7 +101,7 @@ export function InquiryForm({
                 size="sm"
                 onClick={() => setIsSuccess(false)}
               >
-                Submit Another Inquiry
+                {t('inquiry.success.new', 'Submit Another Request')}
               </Button>
             </div>
           </motion.div>
@@ -107,7 +113,7 @@ export function InquiryForm({
             {productTitle && (
               <div className="pb-4 border-b border-[#E5E2DB] flex items-center justify-between">
                 <span className="text-xs uppercase tracking-[0.2em] text-[#737373]">
-                  Selected Creation
+                  {t('modal.inquire.for', 'Regarding Creation')}
                 </span>
                 <span className="text-sm font-serif text-[#111111] font-medium">
                   {productTitle}
@@ -129,11 +135,12 @@ export function InquiryForm({
                   htmlFor="inquiry-client-name"
                   className="block text-[11px] uppercase tracking-[0.18em] text-[#444444] font-medium"
                 >
-                  Full Name <span className="text-[#C5A880]">*</span>
+                  {t('inquiry.field.name', 'Full Legal Name')}{' '}
+                  <span className="text-[#C5A880]">*</span>
                 </label>
                 <Input
                   id="inquiry-client-name"
-                  placeholder="e.g. Lady Vivienne Montgomery"
+                  placeholder={t('inquiry.field.namePlaceholder', 'e.g. Lord Alexander Vance')}
                   {...register('clientName')}
                   className={errors.clientName ? 'border-red-400' : ''}
                 />
@@ -148,12 +155,13 @@ export function InquiryForm({
                   htmlFor="inquiry-client-email"
                   className="block text-[11px] uppercase tracking-[0.18em] text-[#444444] font-medium"
                 >
-                  Email Address <span className="text-[#C5A880]">*</span>
+                  {t('inquiry.field.email', 'Confidential Email Address')}{' '}
+                  <span className="text-[#C5A880]">*</span>
                 </label>
                 <Input
                   id="inquiry-client-email"
                   type="email"
-                  placeholder="client@domaine.com"
+                  placeholder={t('inquiry.field.emailPlaceholder', 'curator@clientestate.com')}
                   {...register('clientEmail')}
                   className={errors.clientEmail ? 'border-red-400' : ''}
                 />
@@ -170,11 +178,11 @@ export function InquiryForm({
                   htmlFor="inquiry-phone"
                   className="block text-[11px] uppercase tracking-[0.18em] text-[#444444] font-medium"
                 >
-                  Telephone / Private Mobile (Optional)
+                  {t('inquiry.field.phone', 'Direct Telephone (Optional)')}
                 </label>
                 <Input
                   id="inquiry-phone"
-                  placeholder="+41 22 819 0000"
+                  placeholder={t('inquiry.field.phonePlaceholder', '+41 22 819 0044')}
                   {...register('phone')}
                 />
               </div>
@@ -185,18 +193,28 @@ export function InquiryForm({
                   htmlFor="inquiry-timeframe"
                   className="block text-[11px] uppercase tracking-[0.18em] text-[#444444] font-medium"
                 >
-                  Preferred Consultation Cadence
+                  {t('inquiry.field.timeframe', 'Preferred Consultation Timeframe')}
                 </label>
                 <select
                   id="inquiry-timeframe"
                   {...register('preferredTimeframe')}
                   className="flex h-11 w-full bg-[#FFFFFF] px-4 py-2 text-sm text-[#111111] border border-[#E5E2DB] focus-visible:outline-none focus-visible:border-[#111111] focus-visible:ring-1 focus-visible:ring-[#111111]"
                 >
-                  <option value="Immediate Consultation">Immediate Consultation (24 Hours)</option>
-                  <option value="Within 7 Days">Within 7 Days</option>
-                  <option value="Private Salon Visit Zurich">Private Salon Visit (Zurich)</option>
-                  <option value="Private Salon Visit London">Private Salon Visit (London)</option>
-                  <option value="Private Salon Visit Tokyo">Private Salon Visit (Tokyo)</option>
+                  <option value="Immediate Consultation">
+                    {t('inquiry.field.timeframe.immediate', 'Immediate (Within 24 Hours)')}
+                  </option>
+                  <option value="Within 7 Days">
+                    {t('inquiry.field.timeframe.week', 'This Week')}
+                  </option>
+                  <option value="Private Salon Visit Zurich">
+                    Private Salon Visit (Zurich)
+                  </option>
+                  <option value="Private Salon Visit London">
+                    Private Salon Visit (London)
+                  </option>
+                  <option value="Private Salon Visit Tokyo">
+                    Private Salon Visit (Tokyo)
+                  </option>
                 </select>
               </div>
             </div>
@@ -207,12 +225,16 @@ export function InquiryForm({
                 htmlFor="inquiry-message"
                 className="block text-[11px] uppercase tracking-[0.18em] text-[#444444] font-medium"
               >
-                Inquiry Details & Bespoke Requirements <span className="text-[#C5A880]">*</span>
+                {t('inquiry.field.message', 'Personal Acquisition Brief & Notes')}{' '}
+                <span className="text-[#C5A880]">*</span>
               </label>
               <Textarea
                 id="inquiry-message"
                 rows={compact ? 3 : 5}
-                placeholder="Kindly outline any specific material preferences, personalized engraving requests, or private delivery timelines..."
+                placeholder={t(
+                  'inquiry.field.messagePlaceholder',
+                  'Share your specific requirements, preferred salon location, or pieces of interest...'
+                )}
                 {...register('message')}
                 className={errors.message ? 'border-red-400' : ''}
               />
@@ -235,12 +257,14 @@ export function InquiryForm({
               {isPending ? (
                 <>
                   <Loader2 className="w-4 h-4 animate-spin text-[#C5A880]" />
-                  <span>Submitting Confidential Request...</span>
+                  <span>{t('inquiry.submitting', 'Transmitting via Secure Salon Channel...')}</span>
                 </>
               ) : (
                 <>
-                  <span>Request Private Consultation</span>
-                  <ArrowRight className="w-4 h-4 text-[#C5A880]" />
+                  <span>{t('inquiry.submit', 'Transmit Private Inquiry')}</span>
+                  <ArrowRight
+                    className={cn('w-4 h-4 text-[#C5A880]', isRTL && 'rotate-180')}
+                  />
                 </>
               )}
             </Button>

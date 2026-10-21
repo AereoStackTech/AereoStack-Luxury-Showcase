@@ -1,0 +1,426 @@
+import type { Language } from './languages';
+
+export const translations: Record<Language, Record<string, string>> = {
+  en: {
+    // Brand & General
+    'brand.monogram': 'Æ',
+    'brand.name': 'AEREOSTACK',
+    'brand.subtitle': 'HAUTE MAISON & RETREATS',
+    'brand.philosophy': 'An atelier dedicated to uncompromising craftsmanship, sidereal horology, noble leatherwork, and secluded architectural sanctuaries. Every creation is an heirloom designed for timeless permanence.',
+    
+    // Navigation
+    'nav.collections': 'Curated Collections',
+    'nav.story': 'Heritage & Craft',
+    'nav.faq': 'Client Care',
+    'nav.contact': 'Private Consultation',
+    'nav.inquire': 'Inquire',
+    'nav.admin': 'Curator Access',
+    'nav.menu': 'Menu',
+    'nav.close': 'Close',
+
+    // Hero Section
+    'hero.badge': 'Autumn / Winter 2026 Collection',
+    'hero.title.line1': 'Where Masterwork',
+    'hero.title.line2': 'Transcends Time',
+    'hero.subtitle': 'An uncompromising sanctuary of haute horlogerie, Tuscan leathercraft, and private architectural retreats. Crafted for those who measure value in generations.',
+    'hero.cta.explore': 'Explore Curations',
+    'hero.cta.consult': 'Request Consultation',
+    'hero.foot.1': 'Swiss Astronomical Calibres',
+    'hero.foot.2': 'Full-Grain Tuscan Tanning',
+    'hero.foot.3': 'Kyoto & Alpine Sanctuaries',
+
+    // Pillars
+    'pillar.1.number': '01 / Precision',
+    'pillar.1.title': 'Mechanical Sovereignty',
+    'pillar.1.desc': 'Every movement is calibrated to sidereal celestial benchmarks, hand-beveled with diamond pastes over hundreds of artisan hours.',
+    'pillar.2.number': '02 / Provenance',
+    'pillar.2.title': 'Noble Organic Materials',
+    'pillar.2.desc': 'Rare vegetable-tanned hides from Florence, certified conflict-free gold alloys, and ethically preserved sustainably sourced timbers.',
+    'pillar.3.number': '03 / Permanence',
+    'pillar.3.title': 'Centuries of Horizon',
+    'pillar.3.desc': 'Acquisitions backed by lifetime provenance archival certificates and direct curator access for generational restoration.',
+
+    // Section Titles
+    'home.featured.tag': 'Featured Masterworks',
+    'home.featured.title': 'Permanent Curations',
+    'home.featured.desc': 'Handcrafted commissions available for confidential acquisition or private viewing appointments.',
+    'home.featured.viewAll': 'View Complete Archive',
+    'home.inquiry.tag': 'Private Client Relations',
+    'home.inquiry.title': 'Schedule an Atelier Viewing',
+    'home.inquiry.desc': 'Connect directly with our lead curators in Zurich, London, or Tokyo for bespoke commissions and confidential acquisitions.',
+
+    // Catalog & Filters
+    'catalog.header.tag': 'The Permanent Archive',
+    'catalog.header.title': 'Curated Collections',
+    'catalog.header.desc': 'Explore limited-edition horological calibres, artisanal Florentine leather goods, and confidential sanctuary destinations.',
+    'catalog.filter.all': 'All Collections',
+    'catalog.search.placeholder': 'Search collections, calibres, materials...',
+    'catalog.sort.label': 'Sort by:',
+    'catalog.sort.featured': 'Curator Selection',
+    'catalog.sort.priceDesc': 'Value: High to Low',
+    'catalog.sort.priceAsc': 'Value: Low to High',
+    'catalog.sort.title': 'Title: A to Z',
+    'catalog.product.priceFrom': 'Acquisition Value',
+    'catalog.product.viewPiece': 'Examine Creation',
+    'catalog.product.quickInquire': 'Private Inquire',
+    'catalog.product.commission': 'Bespoke Commission',
+    'catalog.product.leadTime': 'Artisanal Cadence',
+    'catalog.product.materials': 'Materials',
+    'catalog.product.specifications': 'Specifications',
+    'catalog.empty.title': 'No creations match your query',
+    'catalog.empty.desc': 'Please refine your search parameters or speak directly with our private concierge.',
+    'catalog.empty.reset': 'Reset Filters',
+
+    // Inquiry & Form
+    'inquiry.form.title': 'Initiate Confidential Inquiry',
+    'inquiry.form.subtitle': 'Our private salon team responds within one business day.',
+    'inquiry.field.name': 'Full Legal Name',
+    'inquiry.field.namePlaceholder': 'e.g., Lord Alexander Vance',
+    'inquiry.field.email': 'Confidential Email Address',
+    'inquiry.field.emailPlaceholder': 'curator@clientestate.com',
+    'inquiry.field.phone': 'Direct Telephone (Optional)',
+    'inquiry.field.phonePlaceholder': '+41 22 819 0044',
+    'inquiry.field.timeframe': 'Preferred Consultation Timeframe',
+    'inquiry.field.timeframe.immediate': 'Immediate (Within 24 Hours)',
+    'inquiry.field.timeframe.week': 'This Week',
+    'inquiry.field.timeframe.flexible': 'Flexible / Future Quarter',
+    'inquiry.field.message': 'Personal Acquisition Brief & Notes',
+    'inquiry.field.messagePlaceholder': 'Share your specific requirements, preferred salon location (Zurich / London / Tokyo), or pieces of interest...',
+    'inquiry.submit': 'Transmit Private Inquiry',
+    'inquiry.submitting': 'Transmitting via Secure Salon Channel...',
+    'inquiry.success.title': 'Inquiry Successfully Received',
+    'inquiry.success.desc': 'Your request has been routed to our senior concierge. A private confirmation has been dispatched to your email.',
+    'inquiry.success.new': 'Submit Another Request',
+
+    // Quick Inquiry Modal
+    'modal.inquire.title': 'Confidential Acquisition Request',
+    'modal.inquire.for': 'Regarding',
+    'modal.close': 'Close',
+
+    // Story / Heritage
+    'story.hero.tag': 'Generational Provenance',
+    'story.hero.title': 'The Philosophy of Permanence',
+    'story.hero.desc': 'Founded on the principle that true luxury exists only where time, patience, and uncompromising mastery converge without haste.',
+    'story.chap1.tag': 'Chapter I / The Horological Discipline',
+    'story.chap1.title': 'Mastering Astronomical Time',
+    'story.chap1.desc': 'Our master watchmakers work in high-altitude Jura ateliers where stillness and humidity are controlled down to the decimal point.',
+    'story.chap2.tag': 'Chapter II / The Tuscan Tanneries',
+    'story.chap2.title': 'Hides of Historical Nobility',
+    'story.chap2.desc': 'Using tree bark extracts, mimosa pods, and chestnut tannins aged in oak vats for sixty days, creating leathers that grow richer over decades.',
+    'story.chap3.tag': 'Chapter III / Sanctuary Architecture',
+    'story.chap3.title': 'Silent Sanctuaries for the Mind',
+    'story.chap3.desc': 'From minimalist cedar villas in Kyoto to cantilevered granite lodges in the Engadine, our architectural retreats offer profound seclusion.',
+
+    // FAQ
+    'faq.hero.tag': 'Private Salon Concierge',
+    'faq.hero.title': 'Client Care & Provenance Enquiries',
+    'faq.hero.desc': 'Transparent guidance regarding confidential acquisitions, authentication archives, international delivery, and generational restoration.',
+    'faq.cta.title': 'Have a bespoke request not answered here?',
+    'faq.cta.btn': 'Connect with Senior Curator',
+
+    // Contact
+    'contact.hero.tag': 'Global Ateliers & Residences',
+    'contact.hero.title': 'Request a Private Consultation',
+    'contact.hero.desc': 'Initiate a confidential acquisition, schedule an exclusive salon viewing, or discuss bespoke commission requirements with our lead curators.',
+    'contact.salons.title': 'Global Atelier Salons',
+    'contact.salons.desc': 'Private viewings arranged exclusively by prior reservation.',
+
+    // Footer
+    'footer.col.collections': 'Collections',
+    'footer.col.care': 'Sanctuary Care',
+    'footer.col.concierge': 'Private Concierge',
+    'footer.concierge.desc': 'For private viewings, confidential acquisitions, or bespoke aviation logistics:',
+    'footer.rights': 'All Rights Reserved. Handcrafted in Switzerland, Italy & Japan.',
+    'footer.language': 'Language / Idioma / اللغة',
+
+    // Language Selector UI
+    'lang.changer': 'Language',
+    'lang.selectTitle': 'Select Maison Language',
+    'lang.current': 'Current',
+    'lang.english': 'English',
+    'lang.spanish': 'Spanish',
+    'lang.arabic': 'Arabic',
+  },
+
+  es: {
+    // Brand & General
+    'brand.monogram': 'Æ',
+    'brand.name': 'AEREOSTACK',
+    'brand.subtitle': 'ALTA MAISON & RETIROS',
+    'brand.philosophy': 'Un taller consagrado a la artesanía sin concesiones, la relojería sidérea, la marroquinería noble y santuarios arquitectónicos reservados. Cada creación es un legado concebido para perdurar por generaciones.',
+
+    // Navigation
+    'nav.collections': 'Colecciones Exclusivas',
+    'nav.story': 'Herencia y Oficio',
+    'nav.faq': 'Atención al Cliente',
+    'nav.contact': 'Consulta Privada',
+    'nav.inquire': 'Consultar',
+    'nav.admin': 'Acceso Curador',
+    'nav.menu': 'Menú',
+    'nav.close': 'Cerrar',
+
+    // Hero Section
+    'hero.badge': 'Colección Otoño / Invierno 2026',
+    'hero.title.line1': 'Donde la Obra Maestra',
+    'hero.title.line2': 'Trasciende el Tiempo',
+    'hero.subtitle': 'Un santuario riguroso de alta relojería, artesanía en cuero toscano y retiros arquitectónicos privados. Diseñado para quienes miden el valor en generaciones.',
+    'hero.cta.explore': 'Explorar Creaciones',
+    'hero.cta.consult': 'Solicitar Consulta',
+    'hero.foot.1': 'Calibres Astronómicos Suizos',
+    'hero.foot.2': 'Curtido Toscano de Grano Entero',
+    'hero.foot.3': 'Santuarios en Kioto y los Alpes',
+
+    // Pillars
+    'pillar.1.number': '01 / Precisión',
+    'pillar.1.title': 'Soberanía Mecánica',
+    'pillar.1.desc': 'Cada movimiento es calibrado según parámetros siderales y biselado a mano con pastas de diamante durante cientos de horas artesanas.',
+    'pillar.2.number': '02 / Procedencia',
+    'pillar.2.title': 'Materiales Orgánicos Nobles',
+    'pillar.2.desc': 'Pieles raras de curtición vegetal de Florencia, aleaciones de oro certificadas libres de conflicto y maderas de origen ético y sostenible.',
+    'pillar.3.number': '03 / Permanencia',
+    'pillar.3.title': 'Siglos de Horizonte',
+    'pillar.3.desc': 'Adquisiciones respaldadas por certificados vitalicios de archivo histórico y acceso directo a nuestros conservadores para restauración generacional.',
+
+    // Section Titles
+    'home.featured.tag': 'Obras Maestras Destacadas',
+    'home.featured.title': 'Curaduría Permanente',
+    'home.featured.desc': 'Encargos artesanales disponibles para adquisición confidencial o visitas privadas con cita previa.',
+    'home.featured.viewAll': 'Ver Archivo Completo',
+    'home.inquiry.tag': 'Relaciones con Clientes Privados',
+    'home.inquiry.title': 'Programar una Visita en el Atelier',
+    'home.inquiry.desc': 'Comuníquese directamente con nuestros curadores principales en Zúrich, Londres o Tokio para encargos a medida y adquisiciones privadas.',
+
+    // Catalog & Filters
+    'catalog.header.tag': 'El Archivo Permanente',
+    'catalog.header.title': 'Colecciones Exclusivas',
+    'catalog.header.desc': 'Explore calibres relojeros de edición limitada, marroquinería florentina de autor y destinos de refugio arquitectónico.',
+    'catalog.filter.all': 'Todas las Colecciones',
+    'catalog.search.placeholder': 'Buscar colecciones, calibres, materiales...',
+    'catalog.sort.label': 'Ordenar por:',
+    'catalog.sort.featured': 'Selección del Curador',
+    'catalog.sort.priceDesc': 'Valor: Mayor a Menor',
+    'catalog.sort.priceAsc': 'Valor: Menor a Mayor',
+    'catalog.sort.title': 'Título: A a Z',
+    'catalog.product.priceFrom': 'Valor de Adquisición',
+    'catalog.product.viewPiece': 'Examinar Creación',
+    'catalog.product.quickInquire': 'Consulta Privada',
+    'catalog.product.commission': 'Encargo a Medida',
+    'catalog.product.leadTime': 'Cadencia Artesanal',
+    'catalog.product.materials': 'Materiales',
+    'catalog.product.specifications': 'Especificaciones',
+    'catalog.empty.title': 'Ninguna creación coincide con su búsqueda',
+    'catalog.empty.desc': 'Por favor ajuste los parámetros de búsqueda o comuníquese con nuestro conserje privado.',
+    'catalog.empty.reset': 'Restablecer Filtros',
+
+    // Inquiry & Form
+    'inquiry.form.title': 'Iniciar Consulta Confidencial',
+    'inquiry.form.subtitle': 'El equipo de nuestro salón privado responde en el plazo de un día hábil.',
+    'inquiry.field.name': 'Nombre y Apellidos Legales',
+    'inquiry.field.namePlaceholder': 'ej., Conde Alejandro Valdés',
+    'inquiry.field.email': 'Correo Electrónico Confidencial',
+    'inquiry.field.emailPlaceholder': 'curador@patrimonio.com',
+    'inquiry.field.phone': 'Teléfono Directo (Opcional)',
+    'inquiry.field.phonePlaceholder': '+34 91 123 4567',
+    'inquiry.field.timeframe': 'Plazo Preferido de Consulta',
+    'inquiry.field.timeframe.immediate': 'Inmediato (En 24 Horas)',
+    'inquiry.field.timeframe.week': 'Esta Semana',
+    'inquiry.field.timeframe.flexible': 'Flexible / Próximo Trimestre',
+    'inquiry.field.message': 'Detalles de la Adquisición y Notas',
+    'inquiry.field.messagePlaceholder': 'Comparta sus requerimientos específicos, ciudad de salón preferida (Zúrich / Londres / Tokio) o piezas de interés...',
+    'inquiry.submit': 'Transmitir Consulta Privada',
+    'inquiry.submitting': 'Transmitiendo por Canal Seguro del Salón...',
+    'inquiry.success.title': 'Consulta Recibida con Éxito',
+    'inquiry.success.desc': 'Su solicitud ha sido dirigida a nuestro conserje principal. Se ha enviado una confirmación privada a su correo electrónico.',
+    'inquiry.success.new': 'Enviar Otra Consulta',
+
+    // Quick Inquiry Modal
+    'modal.inquire.title': 'Solicitud Confidencial de Adquisición',
+    'modal.inquire.for': 'Con respecto a',
+    'modal.close': 'Cerrar',
+
+    // Story / Heritage
+    'story.hero.tag': 'Procedencia Generacional',
+    'story.hero.title': 'La Filosofía de la Permanencia',
+    'story.hero.desc': 'Fundada sobre la premisa de que el verdadero lujo solo existe donde el tiempo, la paciencia y la maestría absoluta convergen sin prisa.',
+    'story.chap1.tag': 'Capítulo I / La Disciplina Relojera',
+    'story.chap1.title': 'Dominando el Tiempo Astronómico',
+    'story.chap1.desc': 'Nuestros maestros relojeros trabajan en talleres alpinos de gran altitud en el Jura, donde la quietud y la humedad se regulan con precisión milimétrica.',
+    'story.chap2.tag': 'Capítulo II / Las Tenerías Toscanas',
+    'story.chap2.title': 'Pieles de Nobleza Histórica',
+    'story.chap2.desc': 'Mediante extractos de corteza de árbol, mimosa y taninos de castaño envejecidos en tinas de roble durante sesenta días, nacen cueros que ganan belleza con las décadas.',
+    'story.chap3.tag': 'Capítulo III / Arquitectura de Santuarios',
+    'story.chap3.title': 'Santuarios Silenciosos para la Mente',
+    'story.chap3.desc': 'Desde villas minimalistas de cedro en Kioto hasta refugios voladizos de granito en la Engadina, nuestros retiros ofrecen un aislamiento sereno e inigualable.',
+
+    // FAQ
+    'faq.hero.tag': 'Conserjería del Salón Privado',
+    'faq.hero.title': 'Atención al Cliente y Procedencia',
+    'faq.hero.desc': 'Orientación transparente sobre adquisiciones confidenciales, archivos de autenticación, entregas internacionales y restauración para generaciones futuras.',
+    'faq.cta.title': '¿Tiene una consulta a medida no resuelta aquí?',
+    'faq.cta.btn': 'Contactar con el Curador Principal',
+
+    // Contact
+    'contact.hero.tag': 'Ateliers Globales y Residencias',
+    'contact.hero.title': 'Solicite una Consulta Privada',
+    'contact.hero.desc': 'Inicie una adquisición confidencial, reserve una visita exclusiva en salón o plantee encargos a medida con nuestros curadores jefes.',
+    'contact.salons.title': 'Salones Atelier en el Mundo',
+    'contact.salons.desc': 'Visitas privadas organizadas exclusivamente mediante reserva previa.',
+
+    // Footer
+    'footer.col.collections': 'Colecciones',
+    'footer.col.care': 'Atención al Cliente',
+    'footer.col.concierge': 'Conserje Privado',
+    'footer.concierge.desc': 'Para visitas privadas, adquisiciones confidenciales o logística de aviación privada:',
+    'footer.rights': 'Todos los derechos reservados. Hecho a mano en Suiza, Italia y Japón.',
+    'footer.language': 'Idioma / Language / اللغة',
+
+    // Language Selector UI
+    'lang.changer': 'Idioma',
+    'lang.selectTitle': 'Seleccionar Idioma de la Maison',
+    'lang.current': 'Actual',
+    'lang.english': 'Inglés (English)',
+    'lang.spanish': 'Español',
+    'lang.arabic': 'Árabe (العربية)',
+  },
+
+  ar: {
+    // Brand & General
+    'brand.monogram': 'Æ',
+    'brand.name': 'إيريوستاك',
+    'brand.subtitle': 'دار الرفاهية والملاذات الخاصة',
+    'brand.philosophy': 'محترف عريق مكرّس للإتقان الحرفي الذي لا يساوم، وصناعة الساعات الفلكية الدقيقة، وأفخر المنتجات الجلدية، والملاذات المعمارية المنعزلة. كل إبداع هو إرث ثمين مصمم للخلود عبر الأجيال.',
+
+    // Navigation
+    'nav.collections': 'مجموعات منتقاة',
+    'nav.story': 'التراث والحرفة',
+    'nav.faq': 'خدمة العملاء',
+    'nav.contact': 'استشارة خاصة',
+    'nav.inquire': 'استفسار خاص',
+    'nav.admin': 'دخول المشرف',
+    'nav.menu': 'القائمة',
+    'nav.close': 'إغلاق',
+
+    // Hero Section
+    'hero.badge': 'مجموعة خريف / شتاء ٢٠٢٦ الفاخرة',
+    'hero.title.line1': 'حيث تتجاوز الروائع',
+    'hero.title.line2': 'حدود الزمن',
+    'hero.subtitle': 'ملاذ متفرد لفنون الساعات الفاخرة، ومصنوعات الجلد التوسكاني، والملاذات المعمارية الحصرية. صُممت خصيصاً لمن يقيسون القيمة بالأجيال لا بالأيام.',
+    'hero.cta.explore': 'استكشف الإبداعات',
+    'hero.cta.consult': 'طلب استشارة خاصة',
+    'hero.foot.1': 'معايرات فلكية سويسرية دقيقة',
+    'hero.foot.2': 'دباغة توسكانية بجلود كاملة الحبيبات',
+    'hero.foot.3': 'ملاذات كيوتو وأعالي الألب',
+
+    // Pillars
+    'pillar.1.number': '٠١ / الدقة المطلقة',
+    'pillar.1.title': 'سيادة ميكانيكية',
+    'pillar.1.desc': 'تتم معايرة كل حركة ميكانيكية وفق معايير فلكية دقيقة، ومصقولة يدوياً بمسحوق الماس الخالص على مدى مئات الساعات الحرفية.',
+    'pillar.2.number': '٠٢ / الأصالة والمصدر',
+    'pillar.2.title': 'مواد طبيعية نبيلة',
+    'pillar.2.desc': 'جلود نادرة مدبوغة نباتياً من فلورنسا، وسبائك ذهبية معتمدة وأخشاب عتيقة محصودة وفق أعلى المعايير الأخلاقية والمستدامة.',
+    'pillar.3.number': '٠٣ / الخلود والأثر',
+    'pillar.3.title': 'آفاق ممتدة عبر القرون',
+    'pillar.3.desc': 'مقتنيات موثقة بأرشيف أصل دائم وتواصل شخصي مباشر مع كبار المشرفين لأعمال الصيانة والترميم عبر الأجيال المتتالية.',
+
+    // Section Titles
+    'home.featured.tag': 'روائع مختارة',
+    'home.featured.title': 'مقتنيات دائمة',
+    'home.featured.desc': 'قطع فنية نادرة وحصرية متاحة للاقتناء السري أو للمعاينة الشخصية بموعد خاص ومسبق.',
+    'home.featured.viewAll': 'عرض الأرشيف الكامل',
+    'home.inquiry.tag': 'علاقات كبار الشخصيات',
+    'home.inquiry.title': 'حجز معاينة في صالون الدار',
+    'home.inquiry.desc': 'تواصل مباشرة مع كبار القيمين في زيورخ، لندن، أو طوكيو لطلبات التوصيف الخاصة والاقتناء السري.',
+
+    // Catalog & Filters
+    'catalog.header.tag': 'الأرشيف الدائم',
+    'catalog.header.title': 'المجموعات الحصرية',
+    'catalog.header.desc': 'اكتشف روائع الساعات ذات الإصدار المحدود، ومقتنيات الجلد الإيطالي الفاخر، ووجهات الملاذات المعمارية الخاصة.',
+    'catalog.filter.all': 'جميع المجموعات',
+    'catalog.search.placeholder': 'ابحث في المجموعات، المعايير، المواد...',
+    'catalog.sort.label': 'ترتيب حسب:',
+    'catalog.sort.featured': 'اختيار القيّم',
+    'catalog.sort.priceDesc': 'القيمة: من الأعلى للأدنى',
+    'catalog.sort.priceAsc': 'القيمة: من الأدنى للأعلى',
+    'catalog.sort.title': 'الاسم: أ إلى ي',
+    'catalog.product.priceFrom': 'قيمة الاقتناء',
+    'catalog.product.viewPiece': 'فحص الإبداع',
+    'catalog.product.quickInquire': 'استفسار سري',
+    'catalog.product.commission': 'تنفيذ بالطلب الخاص',
+    'catalog.product.leadTime': 'مدة الإنجاز الحرفي',
+    'catalog.product.materials': 'المواد النفيسة',
+    'catalog.product.specifications': 'المواصفات الفنية',
+    'catalog.empty.title': 'لم يتم العثور على قطع تطابق بحثك',
+    'catalog.empty.desc': 'يرجى تعديل معايير البحث أو التحدث مباشرة مع مسؤول الضيافة الخاص.',
+    'catalog.empty.reset': 'إعادة ضبط عوامل التصفية',
+
+    // Inquiry & Form
+    'inquiry.form.title': 'بدء استفسار سري وخاص',
+    'inquiry.form.subtitle': 'يقوم فريق الصالون الخاص بنا بالرد خلال يوم عمل واحد فقط.',
+    'inquiry.field.name': 'الاسم القانوني الكامل',
+    'inquiry.field.namePlaceholder': 'مثال: سمو الأمير / سعادة السيد...',
+    'inquiry.field.email': 'البريد الإلكتروني السري',
+    'inquiry.field.emailPlaceholder': 'curator@familyoffice.com',
+    'inquiry.field.phone': 'رقم الهاتف المباشر (اختياري)',
+    'inquiry.field.phonePlaceholder': '+971 50 123 4567',
+    'inquiry.field.timeframe': 'الموعد المفضل للاستشارة',
+    'inquiry.field.timeframe.immediate': 'عاجل (خلال ٢٤ ساعة)',
+    'inquiry.field.timeframe.week': 'خلال هذا الأسبوع',
+    'inquiry.field.timeframe.flexible': 'مرن / الربع القادم',
+    'inquiry.field.message': 'موجز متطلبات الاقتناء والملاحظات',
+    'inquiry.field.messagePlaceholder': 'شاركنا تفاصيل طلبك، والصالون المفضل للمعاينة (زيورخ / لندن / طوكيو)، أو القطع المطلوبة...',
+    'inquiry.submit': 'إرسال الاستفسار السري',
+    'inquiry.submitting': 'جاري الإرسال عبر القناة المشفرة للصالون...',
+    'inquiry.success.title': 'تم استلام الاستفسار بنجاح',
+    'inquiry.success.desc': 'تم تحويل طلبكم مباشرة إلى مسؤول الضيافة الأول. تم إرسال تأكيد خاص وسري إلى بريدكم الإلكتروني.',
+    'inquiry.success.new': 'تقديم طلب استفسار آخر',
+
+    // Quick Inquiry Modal
+    'modal.inquire.title': 'طلب اقتناء سري وخاص',
+    'modal.inquire.for': 'بخصوص القطعة',
+    'modal.close': 'إغلاق',
+
+    // Story / Heritage
+    'story.hero.tag': 'أصالة راسخة عبر الأجيال',
+    'story.hero.title': 'فلسفة الخلود والبقاء',
+    'story.hero.desc': 'تأسست دارنا على يقين راسخ بأن الفخامة الحقيقية لا تتجلى إلا عندما يتضافر الوقت والصبر والإتقان الفائق دون استعجال.',
+    'story.chap1.tag': 'الفصل الأول / انضباط صناعة الساعات',
+    'story.chap1.title': 'إتقان حساب الزمن الفلكي',
+    'story.chap1.desc': 'يعمل صناع الساعات لدينا في محترفات جبال جورا الشاهقة حيث الهدوء المطلق والتحكم الكامل في الرطوبة بدقة متناهية.',
+    'story.chap2.tag': 'الفصل الثاني / مدابغ توسكانا العريقة',
+    'story.chap2.title': 'جلود ذات نبالة تاريخية',
+    'story.chap2.desc': 'باستخدام خلاصات لحاء الأشجار وحبوب الميموزا المعتقة في براميل البلوط لمدة ستين يوماً، تنبثق جلود تزداد رونقاً وعمقاً مع مرور العقود.',
+    'story.chap3.tag': 'الفصل الثالث / العمارة الملاذ',
+    'story.chap3.title': 'ملاذات هادئة لصفاء العقل',
+    'story.chap3.desc': 'من الفيلات الخشبية البسيطة في كيوتو إلى نزل الجرانيت المعلقة في إنجادين، تمنح ملاذاتنا خصوصية وعزلة راقية لا مثيل لها.',
+
+    // FAQ
+    'faq.hero.tag': 'خدمة صالون كبار الشخصيات',
+    'faq.hero.title': 'خدمة العملاء واستفسارات الأصالة',
+    'faq.hero.desc': 'إرشادات شاملة وواضحة بشأن عمليات الاقتناء السري، وتوثيق الأرشيف التاريخي، والتسليم الآمن دولياً، والترميم لأجيال المستقبل.',
+    'faq.cta.title': 'هل لديك استفسار مخصص لم تجد إجابته هنا؟',
+    'faq.cta.btn': 'التواصل مع القيّم الأول',
+
+    // Contact
+    'contact.hero.tag': 'المحترفات والإقامات العالمية',
+    'contact.hero.title': 'طلب استشارة خاصة',
+    'contact.hero.desc': 'ابدأ إجراءات اقتناء سرية، أو احجز موعداً خاصاً في صالوناتنا، أو ناقش تفاصيل تفصيل قطعة نادرة مع كبار القيمين.',
+    'contact.salons.title': 'صالونات الدار حول العالم',
+    'contact.salons.desc': 'المعاينات الشخصية تتم حصرياً بموجب حجز وترتيب مسبق.',
+
+    // Footer
+    'footer.col.collections': 'المجموعات',
+    'footer.col.care': 'رعاية العملاء',
+    'footer.col.concierge': 'الضيافة الخاصة',
+    'footer.concierge.desc': 'للمعاينات الخاصة، الاقتناء السري، أو الترتيبات الجوية الخاصة:',
+    'footer.rights': 'جميع الحقوق محفوظة. صُنع يدوياً في سويسرا وإيطاليا واليابان.',
+    'footer.language': 'اللغة / Language / Idioma',
+
+    // Language Selector UI
+    'lang.changer': 'اللغة',
+    'lang.selectTitle': 'اختر لغة الدار المفضلة',
+    'lang.current': 'الحالية',
+    'lang.english': 'الإنجليزية (English)',
+    'lang.spanish': 'الإسبانية (Español)',
+    'lang.arabic': 'العربية',
+  },
+};

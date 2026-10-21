@@ -5,6 +5,8 @@ import { luxuryDb } from '@/lib/db';
 import Link from 'next/link';
 import { ShieldCheck, Mail, Phone, Clock, ArrowRight } from 'lucide-react';
 
+import { FAQHeader } from '@/components/features/faq-header';
+
 export const revalidate = 0;
 
 export default async function FAQPage() {
@@ -14,17 +16,7 @@ export default async function FAQPage() {
     <div className="py-12 sm:py-20 space-y-16">
       <Container className="space-y-12">
         {/* Header */}
-        <div className="max-w-3xl space-y-4">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-[#C5A880] font-semibold block">
-            Client Services & Assurance
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-serif text-[#111111]">
-            Frequently Addressed Queries
-          </h1>
-          <p className="text-sm sm:text-base text-[#666666] leading-relaxed">
-            Detailed guidance regarding bespoke commissions, cryptographic provenance certification, white-glove armored transit, and lifelong atelier maintenance.
-          </p>
-        </div>
+        <FAQHeader />
 
         {/* FAQs Accordion */}
         <div className="bg-[#FFFFFF] p-8 sm:p-12 border border-[#E5E2DB] shadow-sm max-w-4xl">

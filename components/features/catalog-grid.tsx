@@ -4,12 +4,12 @@ import * as React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'motion/react';
-import { Search, SlidersHorizontal, ArrowUpRight, MessageSquare, Sparkles } from 'lucide-react';
+import { Search, ArrowUpRight, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { QuickInquiryModal } from './quick-inquiry-modal';
 import type { LuxuryProductItem, LuxuryCategory } from '@/lib/db';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/lib/i18n/language-context';
 
 export function CatalogGrid({
   initialProducts,
@@ -20,6 +20,7 @@ export function CatalogGrid({
   categories: LuxuryCategory[];
   selectedCategorySlug?: string;
 }) {
+  const { t, formatPrice, isRTL } = useLanguage();
   const [selectedCategory, setSelectedCategory] = React.useState<string | null>(null);
   const [searchQuery, setSearchQuery] = React.useState('');
   const [sortBy, setSortBy] = React.useState<'featured' | 'price-desc' | 'price-asc' | 'title'>('featured');
@@ -66,14 +67,6 @@ export function CatalogGrid({
     return list;
   }, [initialProducts, activeCategory, searchQuery, sortBy, categories]);
 
-  const formatPrice = (val: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      maximumFractionDigits: 0,
-    }).format(val);
-  };
-
   return (
     <div className="w-full space-y-12">
       {/* Filters and Controls Bar */}
@@ -89,7 +82,7 @@ export function CatalogGrid({
                 : 'bg-[#FFFFFF] text-[#666666] border-[#E5E2DB] hover:border-[#111111] hover:text-[#111111]'
             )}
           >
-            All Creations ({initialProducts.length})
+            {t('catalog.filter.all', 'All Collections')} ({initialProducts.length})
           </button>
           {categories.map((cat) => {
             const count = initialProducts.filter((p) => p.categoryId === cat.id).length;
@@ -114,14 +107,22 @@ export function CatalogGrid({
         {/* Search & Sort Controls */}
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full lg:w-auto">
           {/* Search Input */}
-          <div className="relative min-w-[220px]">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#888888]" />
+          <div className="relative min-w-[240px]">
+            <Search
+              className={cn(
+                'absolute top-1/2 -translate-y-1/2 w-4 h-4 text-[#888888]',
+                isRTL ? 'right-3.5' : 'left-3.5'
+              )}
+            />
             <input
               type="text"
-              placeholder="Search collections..."
+              placeholder={t('catalog.search.placeholder', 'Search collections...')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="h-10 w-full pl-10 pr-4 bg-[#FFFFFF] border border-[#E5E2DB] text-xs text-[#111111] placeholder:text-[#888888] focus:outline-none focus:border-[#111111]"
+              className={cn(
+                'h-10 w-full bg-[#FFFFFF] border border-[#E5E2DB] text-xs text-[#111111] placeholder:text-[#888888] focus:outline-none focus:border-[#111111]',
+                isRTL ? 'pr-10 pl-4' : 'pl-10 pr-4'
+              )}
             />
           </div>
 
@@ -130,11 +131,12 @@ export function CatalogGrid({
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
             className="h-10 px-3 bg-[#FFFFFF] border border-[#E5E2DB] text-xs uppercase tracking-wider text-[#111111] focus:outline-none focus:border-[#111111]"
+            aria-label={t('catalog.sort.label', 'Sort by')}
           >
-            <option value="featured">Curator&apos;s Choice</option>
-            <option value="price-desc">Price: High to Low</option>
-            <option value="price-asc">Price: Low to High</option>
-            <option value="title">Alphabetical</option>
+            <option value="featured">{t('catalog.sort.featured', "Curator's Choice")}</option>
+            <option value="price-desc">{t('catalog.sort.priceDesc', 'Price: High to Low')}</option>
+            <option value="price-asc">{t('catalog.sort.priceAsc', 'Price: Low to High')}</option>
+            <option value="title">{t('catalog.sort.title', 'Alphabetical')}</option>
           </select>
         </div>
       </div>
@@ -143,13 +145,16 @@ export function CatalogGrid({
       {filteredProducts.length === 0 ? (
         <div className="py-24 text-center border border-[#E5E2DB] bg-[#FFFFFF] p-8 flex flex-col items-center space-y-4">
           <div className="w-12 h-12 border border-[#E5E2DB] flex items-center justify-center text-[#737373] text-lg font-serif">
-            Æ
+            {t('brand.monogram', 'Æ')}
           </div>
           <h3 className="text-xl font-serif text-[#111111]">
-            No Masterpieces Matched
+            {t('catalog.empty.title', 'No Masterpieces Matched')}
           </h3>
           <p className="text-xs text-[#737373] max-w-sm leading-relaxed">
-            We could not find items matching your specific search filters. Our atelier also crafts bespoke commissions tailored to your specific requirements.
+            {t(
+              'catalog.empty.desc',
+              'We could not find items matching your specific search filters. Our atelier also crafts bespoke commissions tailored to your specific requirements.'
+            )}
           </p>
           <Button
             variant="outline"
@@ -159,7 +164,7 @@ export function CatalogGrid({
               setSearchQuery('');
             }}
           >
-            Reset Catalog Filters
+            {t('catalog.empty.reset', 'Reset Catalog Filters')}
           </Button>
         </div>
       ) : (
@@ -203,14 +208,24 @@ export function CatalogGrid({
 
                     {/* Featured Ribbon */}
                     {product.isFeatured && (
-                      <div className="absolute top-4 left-4 z-10 px-2.5 py-1 bg-[#111111] text-[#C5A880] text-[10px] uppercase tracking-[0.2em] font-medium border border-[#C5A880]/30">
-                        Featured Piece
+                      <div
+                        className={cn(
+                          'absolute top-4 z-10 px-2.5 py-1 bg-[#111111] text-[#C5A880] text-[10px] uppercase tracking-[0.2em] font-medium border border-[#C5A880]/30',
+                          isRTL ? 'right-4' : 'left-4'
+                        )}
+                      >
+                        {t('catalog.sort.featured', 'Featured Piece')}
                       </div>
                     )}
 
                     {/* Category Label */}
                     {product.category && (
-                      <div className="absolute bottom-4 left-4 z-10 px-2.5 py-1 bg-[#FAF9F6]/90 backdrop-blur-sm text-[#111111] text-[10px] uppercase tracking-[0.18em] font-medium border border-[#E5E2DB]">
+                      <div
+                        className={cn(
+                          'absolute bottom-4 z-10 px-2.5 py-1 bg-[#FAF9F6]/90 backdrop-blur-sm text-[#111111] text-[10px] uppercase tracking-[0.18em] font-medium border border-[#E5E2DB]',
+                          isRTL ? 'right-4' : 'left-4'
+                        )}
+                      >
                         {product.category.name}
                       </div>
                     )}
@@ -242,7 +257,7 @@ export function CatalogGrid({
                     <div className="pt-4 border-t border-[#E5E2DB] flex items-center justify-between">
                       <div className="flex flex-col">
                         <span className="text-[10px] uppercase tracking-widest text-[#888888]">
-                          Acquisition Value
+                          {t('catalog.product.priceFrom', 'Acquisition Value')}
                         </span>
                         <span className="font-serif text-lg font-medium text-[#111111]">
                           {formatPrice(product.price)}
@@ -252,7 +267,7 @@ export function CatalogGrid({
                       <div className="flex items-center gap-2">
                         <button
                           onClick={() => setInquiryProduct(product)}
-                          title="Quick Consultation Request"
+                          title={t('catalog.product.quickInquire', 'Quick Consultation Request')}
                           className="p-2 border border-[#E5E2DB] hover:border-[#111111] hover:bg-[#111111] hover:text-[#FAF9F6] text-[#111111] transition-colors"
                         >
                           <MessageSquare className="w-4 h-4" />
@@ -261,8 +276,10 @@ export function CatalogGrid({
                           href={`/catalog/${product.slug}`}
                           className="inline-flex items-center gap-1.5 px-3 py-2 bg-[#111111] text-[#FAF9F6] hover:bg-[#262626] text-[11px] uppercase tracking-widest transition-colors font-medium"
                         >
-                          <span>Explore</span>
-                          <ArrowUpRight className="w-3.5 h-3.5 text-[#C5A880]" />
+                          <span>{t('catalog.product.viewPiece', 'Explore')}</span>
+                          <ArrowUpRight
+                            className={cn('w-3.5 h-3.5 text-[#C5A880]', isRTL && '-scale-x-100')}
+                          />
                         </Link>
                       </div>
                     </div>

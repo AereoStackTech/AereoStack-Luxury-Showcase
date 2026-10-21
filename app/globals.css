@@ -70,3 +70,26 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #9e8057;
 }
+
+/* Multilingual & RTL Enhancements */
+html[dir="rtl"] body,
+body.rtl {
+  direction: rtl;
+  text-align: right;
+  font-family: system-ui, -apple-system, "Segoe UI", Tahoma, "Geeza Pro", "Al Bayan", Arial, sans-serif;
+  letter-spacing: normal;
+}
+
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] .font-serif-luxury {
+  font-family: system-ui, -apple-system, "Segoe UI", Tahoma, "Amiri", "Times New Roman", serif;
+  letter-spacing: normal;
+}
+
+/* Icon flipping for RTL where directional */
+html[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}

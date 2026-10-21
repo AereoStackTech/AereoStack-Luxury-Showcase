@@ -7,6 +7,9 @@ import { CatalogGrid } from '@/components/features/catalog-grid';
 import { InquiryForm } from '@/components/features/inquiry-form';
 import { ArrowUpRight, ArrowRight, ShieldCheck, Compass, Sparkles, Clock, Star } from 'lucide-react';
 
+import { HomeHero } from '@/components/features/home-hero';
+import { HomePillars } from '@/components/features/home-pillars';
+
 export const revalidate = 0; // Dynamic server rendering for live catalog & inquiry updates
 
 export default async function HomePage() {
@@ -16,149 +19,13 @@ export default async function HomePage() {
     luxuryDb.getTestimonials(),
   ]);
 
-  const featuredProducts = products.filter((p) => p.isFeatured).slice(0, 3);
-
   return (
     <div className="space-y-24 sm:space-y-36 pb-24">
-      {/* 1. Immersive Editorial Hero Section */}
-      <section className="relative min-h-[85vh] sm:min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#111111] text-[#FAF9F6]">
-        {/* Background Image with Muted Gradient Overlay */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=2000&q=85"
-            alt="Maison AereoStack Hero Craft"
-            fill
-            priority
-            className="object-cover object-center opacity-30 scale-105"
-            referrerPolicy="no-referrer"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/60 to-transparent" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-[#111111]/40 to-[#111111]" />
-        </div>
+      {/* 1. Immersive Editorial Hero Section (Multilingual) */}
+      <HomeHero />
 
-        <Container className="relative z-10 py-20 text-center flex flex-col items-center">
-          {/* Subtle Tagline */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 border border-[#C5A880]/40 bg-[#111111]/80 backdrop-blur-md mb-8">
-            <Sparkles className="w-3.5 h-3.5 text-[#C5A880]" />
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#C5A880] font-medium">
-              Autumn / Winter 2026 Collection
-            </span>
-          </div>
-
-          {/* High-Contrast Hero Headline */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif tracking-tight leading-[1.08] max-w-5xl text-[#FAFAFA] font-normal">
-            Where Masterwork <br className="hidden sm:inline" />
-            Transcends Time
-          </h1>
-
-          {/* Subheading */}
-          <p className="mt-8 text-base sm:text-lg md:text-xl text-[#B3B3B3] max-w-2xl font-light leading-relaxed">
-            An uncompromising sanctuary of haute horlogerie, Tuscan leathercraft, and private architectural retreats. Crafted for those who measure value in generations.
-          </p>
-
-          {/* Hero CTAs */}
-          <div className="mt-12 flex flex-col sm:flex-row items-center gap-5 w-full sm:w-auto">
-            <Link
-              href="/catalog"
-              id="hero-explore-catalog-btn"
-              className="w-full sm:w-auto px-8 py-4 bg-[#C5A880] hover:bg-[#B3956D] text-[#111111] font-semibold text-xs tracking-[0.2em] uppercase transition-all duration-300 flex items-center justify-center gap-2 border border-[#C5A880]"
-            >
-              <span>Explore Curations</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              href="/contact"
-              id="hero-private-consultation-btn"
-              className="w-full sm:w-auto px-8 py-4 bg-transparent hover:bg-[#FAF9F6]/10 text-[#FAF9F6] text-xs tracking-[0.2em] uppercase transition-all duration-300 border border-[#FAF9F6]/40 flex items-center justify-center gap-2"
-            >
-              <span>Request Consultation</span>
-              <ArrowUpRight className="w-4 h-4 text-[#C5A880]" />
-            </Link>
-          </div>
-
-          {/* Atelier Footprint Note */}
-          <div className="mt-16 pt-8 border-t border-[#333333]/80 flex flex-wrap items-center justify-center gap-8 text-[11px] uppercase tracking-[0.25em] text-[#888888]">
-            <span>Swiss Astronomical Calibres</span>
-            <span className="text-[#444444]">•</span>
-            <span>Full-Grain Tuscan Tanning</span>
-            <span className="text-[#444444]">•</span>
-            <span>Kyoto & Alpine Sanctuaries</span>
-          </div>
-        </Container>
-      </section>
-
-      {/* 2. Maison Pillars (Editorial Three-Column) */}
-      <section className="relative">
-        <Container>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-            {/* Pillar 1 */}
-            <div className="p-8 sm:p-10 bg-[#FFFFFF] border border-[#E5E2DB] flex flex-col justify-between space-y-6 hover:border-[#C5A880]/60 transition-colors">
-              <div className="space-y-4">
-                <span className="text-[10px] uppercase tracking-[0.25em] text-[#C5A880] font-semibold">
-                  01 / Precision
-                </span>
-                <h3 className="font-serif text-2xl text-[#111111]">
-                  Haute Horlogerie
-                </h3>
-                <p className="text-xs text-[#666666] leading-relaxed">
-                  Hand-finished tourbillons, perpetual calendars, and sidereal movements assembled in our Vallée de Joux atelier. Accurate to within seconds per century.
-                </p>
-              </div>
-              <Link
-                href="/catalog?category=haute-horlogerie"
-                className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-[0.18em] text-[#111111] hover:text-[#C5A880] transition-colors"
-              >
-                <span>View Timepieces</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-
-            {/* Pillar 2 */}
-            <div className="p-8 sm:p-10 bg-[#FFFFFF] border border-[#E5E2DB] flex flex-col justify-between space-y-6 hover:border-[#C5A880]/60 transition-colors">
-              <div className="space-y-4">
-                <span className="text-[10px] uppercase tracking-[0.25em] text-[#C5A880] font-semibold">
-                  02 / Permanence
-                </span>
-                <h3 className="font-serif text-2xl text-[#111111]">
-                  Maison Leathercraft
-                </h3>
-                <p className="text-xs text-[#666666] leading-relaxed">
-                  Sculpted from uninterrupted full-grain French and Tuscan hides, stitched using double-waxed linen thread and reinforced with ruthenium-coated brass.
-                </p>
-              </div>
-              <Link
-                href="/catalog?category=maison-leathercraft"
-                className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-[0.18em] text-[#111111] hover:text-[#C5A880] transition-colors"
-              >
-                <span>View Leather Goods</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-
-            {/* Pillar 3 */}
-            <div className="p-8 sm:p-10 bg-[#FFFFFF] border border-[#E5E2DB] flex flex-col justify-between space-y-6 hover:border-[#C5A880]/60 transition-colors">
-              <div className="space-y-4">
-                <span className="text-[10px] uppercase tracking-[0.25em] text-[#C5A880] font-semibold">
-                  03 / Sanctuary
-                </span>
-                <h3 className="font-serif text-2xl text-[#111111]">
-                  Architectural Retreats
-                </h3>
-                <p className="text-xs text-[#666666] leading-relaxed">
-                  Exclusive private estates in Kyoto, the Engadin Valley, and the Amalfi cliffs. Curated private flight connections, dedicated master chefs, and absolute discretion.
-                </p>
-              </div>
-              <Link
-                href="/catalog?category=private-sanctuary-journeys"
-                className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-[0.18em] text-[#111111] hover:text-[#C5A880] transition-colors"
-              >
-                <span>Discover Retreats</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-          </div>
-        </Container>
-      </section>
+      {/* 2. Maison Pillars (Multilingual) */}
+      <HomePillars />
 
       {/* 3. Featured Masterpieces / Catalog Grid Preview */}
       <section className="relative">

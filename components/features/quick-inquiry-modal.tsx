@@ -4,6 +4,7 @@ import * as React from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { InquiryForm } from './inquiry-form';
 import type { LuxuryProductItem } from '@/lib/db';
+import { useLanguage } from '@/lib/i18n/language-context';
 
 export function QuickInquiryModal({
   product,
@@ -14,6 +15,8 @@ export function QuickInquiryModal({
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }) {
+  const { t } = useLanguage();
+
   if (!product) return null;
 
   return (
@@ -21,13 +24,16 @@ export function QuickInquiryModal({
       <DialogContent className="max-w-2xl bg-[#FAF9F6] p-6 sm:p-10 border border-[#E5E2DB]">
         <DialogHeader>
           <span className="text-[10px] uppercase tracking-[0.25em] text-[#C5A880] font-semibold">
-            Bespoke Client Service
+            {t('home.inquiry.tag', 'Bespoke Client Service')}
           </span>
           <DialogTitle className="text-2xl sm:text-3xl font-serif">
-            Inquire: {product.title}
+            {t('modal.inquire.title', 'Confidential Acquisition Request')}: {product.title}
           </DialogTitle>
           <DialogDescription>
-            Submit your private request or arrange an exclusive private viewing with our senior concierge desk.
+            {t(
+              'inquiry.form.subtitle',
+              'Submit your private request or arrange an exclusive private viewing with our senior concierge desk.'
+            )}
           </DialogDescription>
         </DialogHeader>
 

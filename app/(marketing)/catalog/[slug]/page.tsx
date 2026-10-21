@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Container } from '@/components/shared/container';
 import { ProductGallery } from '@/components/features/product-gallery';
+import { ProductPricing } from '@/components/features/product-pricing';
 import { InquiryForm } from '@/components/features/inquiry-form';
 import { luxuryDb } from '@/lib/db';
 import { ShieldCheck, Truck, Clock, Sparkles, ChevronRight, Award } from 'lucide-react';
@@ -92,14 +93,7 @@ export default async function ProductDetailPage({
                   {product.subtitle}
                 </p>
               )}
-              <div className="pt-3 flex items-baseline gap-4">
-                <span className="text-2xl sm:text-3xl font-serif font-medium text-[#111111]">
-                  {formatPrice(product.price)}
-                </span>
-                <span className="text-xs uppercase tracking-wider text-[#888888]">
-                  Excl. bespoke duties
-                </span>
-              </div>
+              <ProductPricing price={product.price} />
             </div>
 
             {/* Description Narrative */}
